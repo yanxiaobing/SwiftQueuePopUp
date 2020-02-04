@@ -10,23 +10,23 @@ import UIKit
 
 open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerTransitioningDelegate {
     
-    var priority: PopUpPriority
+    public var priority: PopUpPriority
     
-    var fromType: PopUpFromType
+    public var fromType: PopUpFromType
     
-    var emptyAreaEnabled: Bool
+    public var emptyAreaEnabled: Bool
     
-    var lowerPriorityHidden: Bool
+    public var lowerPriorityHidden: Bool
     
-    var popUpView: UIView?
+    public var popUpView: UIView?
     
-    var presentTransitioning: UIViewControllerAnimatedTransitioning?
+    public var presentTransitioning: UIViewControllerAnimatedTransitioning?
     
-    var dismissTransitioning: UIViewControllerAnimatedTransitioning?
+    public var dismissTransitioning: UIViewControllerAnimatedTransitioning?
     
-    var willHideBlock: PopUpViewWillHideBlock?
+    public var willHideBlock: PopUpViewWillHideBlock?
     
-    var didHidenBlock: PopUpViewDidHidenBlock?
+    public var didHidenBlock: PopUpViewDidHidenBlock?
     
     convenience init(){
         
@@ -36,7 +36,7 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
                   lowerPriorityHidden:false)
     }
     
-    init(priority:PopUpPriority,fromType: PopUpFromType,emptyAreaEnabled: Bool,lowerPriorityHidden: Bool){
+    public init(priority:PopUpPriority,fromType: PopUpFromType,emptyAreaEnabled: Bool,lowerPriorityHidden: Bool){
         
         self.priority = priority;
         self.fromType = fromType;
@@ -63,7 +63,7 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
         fatalError("init(coder:) has not been implemented")
     }
     
-    func showInQueue(_ didHidenBlock: @escaping PopUpViewDidHidenBlock) {
+    public func showInQueue(_ didHidenBlock: @escaping PopUpViewDidHidenBlock) {
         self.didHidenBlock = didHidenBlock
         PopUpQueue.shared.addPopUp(self)
     }
@@ -77,7 +77,7 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
         self.view.addSubview(popUpView!)
     }
     
-    func present() {
+    public func present() {
         
         var rootVC : UIViewController?
         
@@ -101,11 +101,11 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
         rootVC?.present(navVC, animated: true, completion: nil)
     }
     
-    func dismiss() {
+    public func dismiss() {
         PopUpQueue.shared.removePopUp(self)
     }
     
-    func temporarilyDismiss(animated: Bool, completion: @escaping () -> Void) {
+    public func temporarilyDismiss(animated: Bool, completion: @escaping () -> Void) {
         self.dismiss(animated: animated) {
             completion()
         }
@@ -137,18 +137,18 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
 
 
 // MARK: PopUpTransition
-class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
+open class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
     
-    var minScale : CGFloat = 0.85
-    var maxScale : CGFloat = 1.0
-    var dismiss : Bool = false
-    var duration : TimeInterval = 0.25
+    public var minScale : CGFloat = 0.85
+    public var maxScale : CGFloat = 1.0
+    public var dismiss : Bool = false
+    public var duration : TimeInterval = 0.25
     
     convenience init(dismiss:Bool = false) {
         self.init(minScale:0.85,maxScale:1.0,duration:0.25,dismiss:dismiss)
     }
     
-    init(minScale:CGFloat,maxScale:CGFloat,duration:TimeInterval,dismiss:Bool) {
+    public init(minScale:CGFloat,maxScale:CGFloat,duration:TimeInterval,dismiss:Bool) {
         super.init()
         self.minScale = minScale
         self.maxScale = maxScale
@@ -156,11 +156,11 @@ class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
         self.dismiss = dismiss
     }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         let duration = self.transitionDuration(using: transitionContext)
         

@@ -32,7 +32,7 @@ public typealias PopUpViewDidHidenBlock = ((PopUpHideType)->())
 
 
 //MARK: PopUpDelegate
-protocol PopUpDelegate : NSObjectProtocol{
+public protocol PopUpDelegate : NSObjectProtocol{
     
     // 弹窗出场优先级
     var priority : PopUpPriority { get set }
@@ -139,7 +139,7 @@ extension UIViewController{
     }
     
     class func currentViewControllerFrom(viewController:UIViewController) -> UIViewController {
-
+        
         if viewController.isKind(of: UINavigationController.self) {
             return currentViewControllerFrom(viewController: viewController.children.last!)
         }

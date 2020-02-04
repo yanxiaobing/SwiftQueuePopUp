@@ -8,6 +8,7 @@ Pod::Spec.new do |popup|
     popup.platform     = :ios, '8.0'
     popup.source       = {:git => 'https://github.com/yanxiaobing/SwiftQueuePopUp.git', :tag => popup.version}
     popup.requires_arc = true
+    popup.swift_version = '4.2'
     popup.source_files     = 'SwiftQueuePopUp/*.swift'
     
 end

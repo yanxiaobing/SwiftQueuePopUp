@@ -166,12 +166,8 @@ class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
         
         if self.dismiss {
             let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
-    
-            #if swift(>=4.2)
             let vc = navVC?.children.first as! PopUpViewController
-            #else
-            let vc = navVC?.viewControllers.first as! PopUpViewController
-            #endif
+            
             UIView.animate(withDuration: duration,
                            delay: 0,
                            options: UIView.AnimationOptions.curveEaseInOut,
@@ -187,11 +183,7 @@ class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
             
             let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
             
-            #if swift(>=4.2)
             let vc = navVC?.children.first as! PopUpViewController
-            #else
-            let vc = navVC?.viewControllers.first as! PopUpViewController
-            #endif
             
             transitionContext.containerView.addSubview(vc.view)
             

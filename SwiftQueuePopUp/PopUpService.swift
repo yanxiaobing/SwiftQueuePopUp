@@ -141,11 +141,7 @@ extension UIViewController{
     class func currentViewControllerFrom(viewController:UIViewController) -> UIViewController {
 
         if viewController.isKind(of: UINavigationController.self) {
-            #if swift(>=4.2)
             return currentViewControllerFrom(viewController: viewController.children.last!)
-            #else
-            return currentViewControllerFrom(viewController: viewController.viewControllers.last!)
-            #endif
         }
         if viewController.isKind(of: UITabBarController.self) {
             let tabbarVC = viewController as! UITabBarController

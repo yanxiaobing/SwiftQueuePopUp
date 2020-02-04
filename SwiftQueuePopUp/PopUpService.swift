@@ -8,18 +8,18 @@
 
 import UIKit
 
-enum PopUpFromType{
+public enum PopUpFromType{
     case root
     case current
 }
 
-enum PopUpHideType{
+public enum PopUpHideType{
     case emptyArea
     case afterSelected
     case closeView
 }
 
-enum PopUpPriority : Int {
+public enum PopUpPriority : Int {
     case veryLow = -2
     case low = -1
     case normal = 0
@@ -27,8 +27,8 @@ enum PopUpPriority : Int {
     case veryHigh = 2
 }
 
-typealias PopUpViewWillHideBlock = ((PopUpHideType)->())
-typealias PopUpViewDidHidenBlock = ((PopUpHideType)->())
+public typealias PopUpViewWillHideBlock = ((PopUpHideType)->())
+public typealias PopUpViewDidHidenBlock = ((PopUpHideType)->())
 
 
 //MARK: PopUpDelegate

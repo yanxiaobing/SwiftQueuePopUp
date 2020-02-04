@@ -15,6 +15,7 @@
 		ED9465BF23B6025200B7137B /* PopUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9465BD23B6025200B7137B /* PopUpUI.swift */; };
 		ED9465C023B6025200B7137B /* PopUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9465BE23B6025200B7137B /* PopUpService.swift */; };
 		ED9465C223B6029700B7137B /* TestPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9465C123B6029600B7137B /* TestPopViewController.swift */; };
+		ED9C387423BAE3C60020155A /* SwiftQueuePopUp.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ED9C387323BAE3C60020155A /* SwiftQueuePopUp.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		ED9465BD23B6025200B7137B /* PopUpUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpUI.swift; sourceTree = "<group>"; };
 		ED9465BE23B6025200B7137B /* PopUpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpService.swift; sourceTree = "<group>"; };
 		ED9465C123B6029600B7137B /* TestPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPopViewController.swift; sourceTree = "<group>"; };
+		ED9C387323BAE3C60020155A /* SwiftQueuePopUp.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SwiftQueuePopUp.podspec; path = ../SwiftQueuePopUp.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		ED94659A23B6017C00B7137B = {
 			isa = PBXGroup;
 			children = (
+				ED9C387323BAE3C60020155A /* SwiftQueuePopUp.podspec */,
 				ED9465BC23B6025200B7137B /* SwiftQueuePopUp */,
 				ED9465A523B6017C00B7137B /* SwiftQueuePopUpDemo */,
 				ED9465A423B6017C00B7137B /* Products */,
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED9465B323B6018300B7137B /* LaunchScreen.storyboard in Resources */,
+				ED9C387423BAE3C60020155A /* SwiftQueuePopUp.podspec in Resources */,
 				ED9465B023B6018300B7137B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

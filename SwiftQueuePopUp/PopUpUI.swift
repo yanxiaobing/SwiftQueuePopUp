@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerTransitioningDelegate {
+public class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerTransitioningDelegate {
     
     var priority: PopUpPriority
     
@@ -68,7 +68,7 @@ class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerTransi
         PopUpQueue.shared.addPopUp(self)
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.init(white: 0, alpha: 0.7)
@@ -111,15 +111,15 @@ class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerTransi
         }
     }
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return presentTransitioning
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return dismissTransitioning
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if emptyAreaEnabled {
             self.dismiss(animated: true) {
                 self.dismiss()

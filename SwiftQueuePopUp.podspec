@@ -1,6 +1,6 @@
 Pod::Spec.new do |popup|
     popup.name         = 'SwiftQueuePopUp'
-    popup.version      = '1.0.3'
+    popup.version      = '1.0.4'
     popup.summary      = '1：通过VC基类的方式将弹窗的相关属性内聚，便于使用约束布局，简化使用'
     popup.homepage     = 'https://github.com/yanxiaobing/SwiftQueuePopUp'
     popup.license      = 'MIT'

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerTransitioningDelegate {
+class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerTransitioningDelegate {
     
     var priority: PopUpPriority
     
@@ -68,7 +68,7 @@ public class PopUpViewController: UIViewController,PopUpDelegate,UIViewControlle
         PopUpQueue.shared.addPopUp(self)
     }
     
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.init(white: 0, alpha: 0.7)
@@ -111,15 +111,15 @@ public class PopUpViewController: UIViewController,PopUpDelegate,UIViewControlle
         }
     }
     
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return presentTransitioning
     }
     
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return dismissTransitioning
     }
     
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if emptyAreaEnabled {
             self.dismiss(animated: true) {
                 self.dismiss()
@@ -166,8 +166,12 @@ class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
         
         if self.dismiss {
             let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+    
+            #if swift(>=4.2)
             let vc = navVC?.children.first as! PopUpViewController
-            
+            #else
+            let vc = navVC?.viewControllers.first as! PopUpViewController
+            #endif
             UIView.animate(withDuration: duration,
                            delay: 0,
                            options: UIView.AnimationOptions.curveEaseInOut,
@@ -183,7 +187,11 @@ class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
             
             let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
             
+            #if swift(>=4.2)
             let vc = navVC?.children.first as! PopUpViewController
+            #else
+            let vc = navVC?.viewControllers.first as! PopUpViewController
+            #endif
             
             transitionContext.containerView.addSubview(vc.view)
             

@@ -68,7 +68,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C3774A00-5C39-484C-9257-EF19E7E86373 - 10ebb3484369c97d"
+                  uuid = "C3774A00-5C39-484C-9257-EF19E7E86373 - 6dc2d69a3ec5923c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -78,12 +78,12 @@
                   urlString = "file:///Users/xbingo/Desktop/Personal/GitHub/SwiftQueuePopUp/SwiftQueuePopUpDemo/SwiftQueuePopUpDemo/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "45">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "38">
                </Location>
                <Location
-                  uuid = "C3774A00-5C39-484C-9257-EF19E7E86373 - 205a6731798cb47e"
+                  uuid = "C3774A00-5C39-484C-9257-EF19E7E86373 - 5d7302e30420effd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -93,9 +93,87 @@
                   urlString = "file:///Users/xbingo/Desktop/Personal/GitHub/SwiftQueuePopUp/SwiftQueuePopUpDemo/SwiftQueuePopUpDemo/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "14">
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7EB8AEBD-E4DC-4F10-8C36-470BFB2905CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../SwiftQueuePopUp/PopUpUI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "PopUpViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "7EB8AEBD-E4DC-4F10-8C36-470BFB2905CD - 69672fb5986a22cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftQueuePopUpDemo.PopUpViewController.priority.getter : SwiftQueuePopUpDemo.PopUpPriority"
+                  moduleName = "SwiftQueuePopUpDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xbingo/Desktop/Personal/GitHub/SwiftQueuePopUp/SwiftQueuePopUp/PopUpUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  uuid = "7EB8AEBD-E4DC-4F10-8C36-470BFB2905CD - 11bea7a5e1dc36b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftQueuePopUpDemo.PopUpViewController.priority.setter : SwiftQueuePopUpDemo.PopUpPriority"
+                  moduleName = "SwiftQueuePopUpDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xbingo/Desktop/Personal/GitHub/SwiftQueuePopUp/SwiftQueuePopUp/PopUpUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  uuid = "7EB8AEBD-E4DC-4F10-8C36-470BFB2905CD - 4b5be29a056b8a15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftQueuePopUpDemo.PopUpViewController.priority.modify : SwiftQueuePopUpDemo.PopUpPriority"
+                  moduleName = "SwiftQueuePopUpDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xbingo/Desktop/Personal/GitHub/SwiftQueuePopUp/SwiftQueuePopUp/PopUpUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "7EB8AEBD-E4DC-4F10-8C36-470BFB2905CD - 2d60dd8f57661765"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftQueuePopUpDemo.PopUpViewController.priority.modify : SwiftQueuePopUpDemo.PopUpPriority with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "SwiftQueuePopUpDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xbingo/Desktop/Personal/GitHub/SwiftQueuePopUp/SwiftQueuePopUp/PopUpUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
                </Location>
             </Locations>
          </BreakpointContent>

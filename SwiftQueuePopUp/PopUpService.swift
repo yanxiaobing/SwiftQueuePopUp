@@ -60,9 +60,9 @@ public protocol PopUpDelegate : NSObjectProtocol{
 }
 
 //MARK: PopUpQueue
-class PopUpQueue : NSObject{
+public class PopUpQueue : NSObject{
     
-    static let shared = PopUpQueue()
+    public static let shared = PopUpQueue()
     
     override init() {
         super.init()
@@ -72,7 +72,7 @@ class PopUpQueue : NSObject{
     
     var queue = [PopUpDelegate]()
     
-    func addPopUp(_ popUp:PopUpDelegate){
+    public func addPopUp(_ popUp:PopUpDelegate){
         
         let exists = queue.contains { (target) -> Bool in
             return target.isEqual(popUp)

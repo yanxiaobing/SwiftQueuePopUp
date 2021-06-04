@@ -1,7 +1,7 @@
 Pod::Spec.new do |popup|
     popup.name         = 'SwiftQueuePopUp'
-    popup.version      = '1.2.0'
-    popup.summary      = '开放PopUpQueue外部操作'
+    popup.version      = '1.3.0'
+    popup.summary      = '1：空白点击优化 2：增加window上弹窗'
     popup.homepage     = 'https://github.com/yanxiaobing/SwiftQueuePopUp'
     popup.license      = 'MIT'
     popup.authors      = {'XBingo' => 'dove025@qq.com'}

@@ -29,15 +29,15 @@ class ViewController: UIViewController {
     @objc func buttonClick(sender:UIButton?){
         
         TestPopViewController.init(priority: .low, lowerPriorityHidden: true).showInQueue { (hideType) in
-            
+
         }
-        
+
         TestPopViewController.init(priority: .normal, lowerPriorityHidden: false).showInQueue { (hideType) in
-            
+
         }
         
         TestPopViewController.init(priority: .veryLow, lowerPriorityHidden: false).showInQueue { (hideType) in
-            
+
         }
     }
 }

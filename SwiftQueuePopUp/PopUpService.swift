@@ -88,7 +88,9 @@ public class PopUpQueue : NSObject{
             popUp.present()
         }else{
             // 根据优先级进行排序
-            sortPopUps()
+            queue.sort(by:{ (popUp1:PopUpDelegate, popUp2:PopUpDelegate) -> Bool in
+                popUp1.priority.rawValue > popUp2.priority.rawValue
+            })
             // 当前弹窗不支持临时隐藏
             if !currentPopUp!.lowerPriorityHidden {
                 return
@@ -97,11 +99,13 @@ public class PopUpQueue : NSObject{
             if currentPopUp!.isEqual(queue.first!) {
                 return
             }
+            
             // 临时隐藏，为更高优先级弹窗让路
+            weak var weakSelf = self
             currentPopUp!.temporarilyDismiss(animated: true) {
-                self.queue.first!.present()
+                weakSelf?.queue.first!.present()
             }
-            currentPopUp = self.queue.first!
+            currentPopUp = queue.first!
         }
     }
     
@@ -121,12 +125,6 @@ public class PopUpQueue : NSObject{
                 currentPopUp = nil
             }
         }
-    }
-    
-    fileprivate func sortPopUps() {
-        queue.sort(by:{ (popUp1:PopUpDelegate, popUp2:PopUpDelegate) -> Bool in
-            popUp1.priority.rawValue > popUp2.priority.rawValue
-        })
     }
 }
 

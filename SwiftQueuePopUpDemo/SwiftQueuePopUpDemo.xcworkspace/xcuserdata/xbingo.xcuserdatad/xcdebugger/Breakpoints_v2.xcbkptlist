@@ -3,4 +3,70 @@
    uuid = "EEC9B288-A6DA-4993-81D0-55E813A985AA"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE68D778-2A9F-41C4-8855-06BD783B21CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../SwiftQueuePopUp/PopUpService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "removePopUp(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB039E3B-E40A-47B7-A23E-ACA08B356462"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../SwiftQueuePopUp/PopUpUI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "dismiss(animated:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB039E3B-E40A-47B7-A23E-ACA08B356462 - 745d3552ff0140a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of SwiftQueuePopUpDemo.PopUpWindowController.dismiss(animated: Swift.Bool, completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "SwiftQueuePopUpDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xbingo/Desktop/Personal/GitHub/SwiftQueuePopUp/SwiftQueuePopUp/PopUpUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "281"
+                  endingLineNumber = "281"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "EB039E3B-E40A-47B7-A23E-ACA08B356462 - 3506e9be499216c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftQueuePopUpDemo.PopUpWindowController.dismiss(animated: Swift.Bool, completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "SwiftQueuePopUpDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xbingo/Desktop/Personal/GitHub/SwiftQueuePopUp/SwiftQueuePopUp/PopUpUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "282"
+                  endingLineNumber = "282"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -13,7 +13,7 @@ class TestPopViewController: PopUpViewController {
     
     
     init(priority:PopUpPriority,lowerPriorityHidden:Bool) {
-        super.init(priority: priority, fromType: .window, emptyAreaEnabled: true, lowerPriorityHidden: lowerPriorityHidden)
+        super.init(priority: priority, fromType: .current, emptyAreaEnabled: true, lowerPriorityHidden: lowerPriorityHidden)
     }
     
     required init?(coder: NSCoder) {

@@ -118,14 +118,23 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
         
         weak var weakSelf = self
         popUpWindow?.dismiss(animated: flag, completion: {
-            weakSelf?.dismiss()
             weakSelf?.popUpWindow = nil
+            weakSelf?.dismiss()
         })
     }
     
     open func temporarilyDismiss(animated: Bool, completion: @escaping () -> Void) {
-        self.dismiss(animated: animated) {
-            completion()
+        
+        if fromType != .window {
+            super.dismiss(animated: animated) {
+                completion()
+            }
+        }else{
+            weak var weakSelf = self
+            popUpWindow?.dismiss(animated: animated, completion: {
+                weakSelf?.popUpWindow = nil
+                completion()
+            })
         }
     }
     
@@ -240,7 +249,7 @@ class PopUpWindowController: UIViewController {
     // MARK: - Properties
     
     private lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
-    private let popUpViewController: UINavigationController
+    private var popUpViewController: UINavigationController
     
     // MARK: - Initialization
     
@@ -273,5 +282,9 @@ class PopUpWindowController: UIViewController {
             weakSelf?.window = nil
             completion?()
         }
+    }
+    
+    deinit {
+        debugPrint("wobushixiaobing")
     }
 }

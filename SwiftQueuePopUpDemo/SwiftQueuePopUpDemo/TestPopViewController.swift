@@ -13,7 +13,7 @@ class TestPopViewController: PopUpViewController {
     
     
     init(priority:PopUpPriority,lowerPriorityHidden:Bool) {
-        super.init(priority: priority, fromType: .root, emptyAreaEnabled: true, lowerPriorityHidden: lowerPriorityHidden)
+        super.init(priority: priority, fromType: .window, emptyAreaEnabled: true, lowerPriorityHidden: lowerPriorityHidden)
     }
     
     required init?(coder: NSCoder) {
@@ -22,8 +22,8 @@ class TestPopViewController: PopUpViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.popUpView?.backgroundColor = UIColor.yellow
-        self.popUpView?.snp.makeConstraints({ (make) in
+        self.popUpView.backgroundColor = UIColor.yellow
+        self.popUpView.snp.makeConstraints({ (make) in
             make.size.equalTo(CGSize(width: 300, height: 300))
             make.center.equalTo(self.view.snp_center)
         })
@@ -43,9 +43,9 @@ class TestPopViewController: PopUpViewController {
         case .veryHigh:
             textLab.text = "veryHight"
         }
-        self.popUpView?.addSubview(textLab)
+        self.popUpView.addSubview(textLab)
         textLab.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.popUpView!);
+            make.edges.equalTo(self.popUpView);
         }
         
     }

@@ -9,6 +9,7 @@
 import UIKit
 
 public enum PopUpFromType{
+    case window
     case root
     case current
 }
@@ -48,7 +49,7 @@ public protocol PopUpDelegate : NSObjectProtocol{
     var dismissTransitioning : UIViewControllerAnimatedTransitioning? { get set }
     
     // 弹窗内容容器，默认做transform scale 动画
-    var popUpView : UIView? { get set}
+    var popUpView : UIView { get set}
     // 内部处理，告知弹窗即将隐藏
     var willHideBlock : PopUpViewWillHideBlock? { get set }
     // 外部处理，处理弹窗操作事件
@@ -96,6 +97,7 @@ public class PopUpQueue : NSObject{
             if currentPopUp!.isEqual(queue.first!) {
                 return
             }
+            // 临时隐藏，为更高优先级弹窗让路
             currentPopUp!.temporarilyDismiss(animated: true) {
                 self.queue.first!.present()
             }

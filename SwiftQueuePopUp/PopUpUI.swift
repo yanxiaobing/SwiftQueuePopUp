@@ -18,7 +18,10 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
     
     open var lowerPriorityHidden: Bool
     
-    open var popUpView: UIView?
+    open lazy var popUpView : UIView = {
+        let view = UIView()
+        return view
+    }()
     
     open var presentTransitioning: UIViewControllerAnimatedTransitioning?
     
@@ -28,15 +31,13 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
     
     open var didHidenBlock: PopUpViewDidHidenBlock?
     
+    private var popUpWindow : PopUpWindowController?
+    
     convenience init(){
-        
-        self.init(priority:PopUpPriority.normal,
-                  fromType:PopUpFromType.root,
-                  emptyAreaEnabled:true,
-                  lowerPriorityHidden:false)
+        self.init()
     }
     
-    public init(priority:PopUpPriority,fromType: PopUpFromType,emptyAreaEnabled: Bool,lowerPriorityHidden: Bool){
+    public init(priority:PopUpPriority = .normal,fromType: PopUpFromType = .window,emptyAreaEnabled: Bool = true,lowerPriorityHidden: Bool = false){
         
         self.priority = priority;
         self.fromType = fromType;
@@ -70,39 +71,56 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.init(white: 0, alpha: 0.7)
-        
-        popUpView = UIView.init()
-        self.view.addSubview(popUpView!)
+        self.view.addSubview(popUpView)
     }
     
     open func present() {
         
-        var rootVC : UIViewController?
+        // 是否存在自定义动画
+        let existTransitioning = presentTransitioning != nil || dismissTransitioning != nil
         
+        // 构建弹窗导航控制器
+        let navVC = UINavigationController.init(rootViewController: self)
+        navVC.setNavigationBarHidden(true, animated: false)
+        if existTransitioning {
+            navVC.modalPresentationStyle = UIModalPresentationStyle.custom
+            navVC.transitioningDelegate = self
+        }else{
+            navVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        }
+        
+        if fromType == .window {
+            popUpWindow = PopUpWindowController.init(popUpViewController: navVC)
+            popUpWindow?.present(animated: true, completion: nil)
+            return
+        }
+        
+        var rootVC : UIViewController?
         if fromType == PopUpFromType.current{
             rootVC =  UIViewController.currentViewController()
         }else{
             rootVC = UIApplication.shared.delegate?.window??.rootViewController
         }
-        
-        let navVC = UINavigationController.init(rootViewController: self)
-        
-        navVC.setNavigationBarHidden(true, animated: false)
-        
-        if presentTransitioning != nil || dismissTransitioning != nil{
-            navVC.modalPresentationStyle = UIModalPresentationStyle.custom
-            navVC.transitioningDelegate = self
-        }else{
-            navVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            rootVC?.definesPresentationContext = true
-        }
+        rootVC?.definesPresentationContext = navVC.modalPresentationStyle == .overCurrentContext
         rootVC?.present(navVC, animated: true, completion: nil)
     }
     
     open func dismiss() {
         PopUpQueue.shared.removePopUp(self)
+    }
+    
+    open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        if fromType != .window {
+            super.dismiss(animated: flag, completion: completion)
+            return
+        }
+        
+        weak var weakSelf = self
+        popUpWindow?.dismiss(animated: flag, completion: {
+            weakSelf?.dismiss()
+            weakSelf?.popUpWindow = nil
+        })
     }
     
     open func temporarilyDismiss(animated: Bool, completion: @escaping () -> Void) {
@@ -120,7 +138,19 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
     }
     
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         if emptyAreaEnabled {
+            
+            guard let point = touches.first?.location(in: self.view) else{
+                return
+            }
+            
+            let targetP = self.popUpView.layer.convert(point, from:  self.view.layer) 
+            
+            if self.popUpView.layer.contains(targetP) {
+                return
+            }
+            
             self.dismiss(animated: true) {
                 self.dismiss()
                 if self.didHidenBlock != nil {
@@ -173,9 +203,9 @@ open class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
                            options: UIView.AnimationOptions.curveEaseInOut,
                            animations: {
                             vc.view.alpha = 0
-                            vc.popUpView?.transform = CGAffineTransform.init(scaleX: self.minScale, y: self.minScale)
+                            vc.popUpView.transform = CGAffineTransform.init(scaleX: self.minScale, y: self.minScale)
                             
-            }) { (finished) in
+                           }) { (finished) in
                 vc.view.removeFromSuperview()
                 transitionContext.completeTransition(true)
             }
@@ -189,17 +219,59 @@ open class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
             
             vc.view.alpha = 0
             
-            vc.popUpView?.transform = CGAffineTransform.init(scaleX: self.minScale, y: self.minScale)
+            vc.popUpView.transform = CGAffineTransform.init(scaleX: self.minScale, y: self.minScale)
             
             UIView.animate(withDuration: duration,
                            delay: 0,
                            options:UIView.AnimationOptions.curveEaseInOut,
                            animations: {
                             vc.view.alpha = 1
-                            vc.popUpView?.transform = CGAffineTransform.init(scaleX: self.maxScale, y: self.maxScale)
-            }) { (finished) in
+                            vc.popUpView.transform = CGAffineTransform.init(scaleX: self.maxScale, y: self.maxScale)
+                           }) { (finished) in
                 transitionContext.completeTransition(true)
             }
+        }
+    }
+}
+
+
+class PopUpWindowController: UIViewController {
+    
+    // MARK: - Properties
+    
+    private lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    private let popUpViewController: UINavigationController
+    
+    // MARK: - Initialization
+    
+    init(popUpViewController: UINavigationController) {
+        
+        self.popUpViewController = popUpViewController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        fatalError("This initializer is not supported")
+    }
+    
+    // MARK: - Presentation
+    
+    func present(animated: Bool, completion: (() -> Void)?) {
+        window?.rootViewController = self
+        window?.windowLevel = UIWindow.Level.alert + 1
+        window?.makeKeyAndVisible()
+        self.definesPresentationContext = popUpViewController.modalPresentationStyle == .overCurrentContext
+        present(popUpViewController, animated: animated, completion: completion)
+    }
+    
+    // MARK: - Overrides
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        weak var weakSelf = self
+        super.dismiss(animated: flag) {
+            weakSelf?.window = nil
+            completion?()
         }
     }
 }

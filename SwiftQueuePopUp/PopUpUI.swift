@@ -285,6 +285,6 @@ class PopUpWindowController: UIViewController {
     }
     
     deinit {
-        debugPrint("wobushixiaobing")
+        debugPrint("PopUpWindowController is deinit")
     }
 }

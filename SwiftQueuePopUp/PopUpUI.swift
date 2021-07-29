@@ -120,6 +120,7 @@ open class PopUpViewController: UIViewController,PopUpDelegate,UIViewControllerT
         popUpWindow?.dismiss(animated: flag, completion: {
             weakSelf?.popUpWindow = nil
             weakSelf?.dismiss()
+            completion?()
         })
     }
     

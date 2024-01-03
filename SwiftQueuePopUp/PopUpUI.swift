@@ -205,39 +205,46 @@ open class PopUpTransition: NSObject,UIViewControllerAnimatedTransitioning {
         let duration = self.transitionDuration(using: transitionContext)
         
         if self.dismiss {
-            let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
-            let vc = navVC?.children.first as! PopUpViewController
+            
+            guard let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+                  let targetVc = navVC.children.first as? PopUpViewController else {
+                transitionContext.completeTransition(true)
+                return
+            }
             
             UIView.animate(withDuration: duration,
                            delay: 0,
                            options: UIView.AnimationOptions.curveEaseInOut,
                            animations: {
-                            vc.view.alpha = 0
-                            vc.popUpView.transform = CGAffineTransform.init(scaleX: self.minScale, y: self.minScale)
-                            
-                           }) { (finished) in
-                vc.view.removeFromSuperview()
+                targetVc.view.alpha = 0
+                targetVc.popUpView.transform = CGAffineTransform.init(scaleX: self.minScale, y: self.minScale)
+                
+            }) { (finished) in
+                targetVc.view.removeFromSuperview()
                 transitionContext.completeTransition(true)
             }
-        }else{
             
-            let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+        } else {
             
-            let vc = navVC?.children.first as! PopUpViewController
+            guard let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
+                  let targetVc = navVC.children.first as? PopUpViewController else {
+                transitionContext.completeTransition(true)
+                return
+            }
             
-            transitionContext.containerView.addSubview(vc.view)
+            transitionContext.containerView.addSubview(navVC.view)
             
-            vc.view.alpha = 0
+            targetVc.view.alpha = 0
             
-            vc.popUpView.transform = CGAffineTransform.init(scaleX: self.minScale, y: self.minScale)
+            targetVc.popUpView.transform = CGAffineTransform.init(scaleX: self.minScale, y: self.minScale)
             
             UIView.animate(withDuration: duration,
                            delay: 0,
                            options:UIView.AnimationOptions.curveEaseInOut,
                            animations: {
-                            vc.view.alpha = 1
-                            vc.popUpView.transform = CGAffineTransform.init(scaleX: self.maxScale, y: self.maxScale)
-                           }) { (finished) in
+                targetVc.view.alpha = 1
+                targetVc.popUpView.transform = CGAffineTransform.init(scaleX: self.maxScale, y: self.maxScale)
+            }) { (finished) in
                 transitionContext.completeTransition(true)
             }
         }

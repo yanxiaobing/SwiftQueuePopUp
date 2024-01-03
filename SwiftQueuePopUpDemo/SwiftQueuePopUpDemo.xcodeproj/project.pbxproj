@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0CAB029E9B46A3DB8BEC46E9 /* Pods_SwiftQueuePopUpDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F2526038B96F6B7C2AF114 /* Pods_SwiftQueuePopUpDemo.framework */; };
+		ED8389652B4553A300049A6E /* PopUpTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8389642B4553A300049A6E /* PopUpTransition.swift */; };
+		ED8389672B45545000049A6E /* BottomToTopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8389662B45545000049A6E /* BottomToTopTransition.swift */; };
 		ED9465A723B6017C00B7137B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9465A623B6017C00B7137B /* AppDelegate.swift */; };
 		ED9465AB23B6017C00B7137B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9465AA23B6017C00B7137B /* ViewController.swift */; };
 		ED9465B023B6018300B7137B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED9465AF23B6018300B7137B /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		50391090D679B2C00501C7E3 /* Pods-SwiftQueuePopUpDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftQueuePopUpDemo.release.xcconfig"; path = "Target Support Files/Pods-SwiftQueuePopUpDemo/Pods-SwiftQueuePopUpDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C1F2526038B96F6B7C2AF114 /* Pods_SwiftQueuePopUpDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftQueuePopUpDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37C08DEA5DF890D550D8325 /* Pods-SwiftQueuePopUpDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftQueuePopUpDemo.debug.xcconfig"; path = "Target Support Files/Pods-SwiftQueuePopUpDemo/Pods-SwiftQueuePopUpDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		ED8389642B4553A300049A6E /* PopUpTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTransition.swift; sourceTree = "<group>"; };
+		ED8389662B45545000049A6E /* BottomToTopTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomToTopTransition.swift; sourceTree = "<group>"; };
 		ED9465A323B6017C00B7137B /* SwiftQueuePopUpDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftQueuePopUpDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9465A623B6017C00B7137B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9465AA23B6017C00B7137B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				ED9465BD23B6025200B7137B /* PopUpUI.swift */,
+				ED8389642B4553A300049A6E /* PopUpTransition.swift */,
+				ED8389662B45545000049A6E /* BottomToTopTransition.swift */,
 				ED9465BE23B6025200B7137B /* PopUpService.swift */,
 			);
 			name = SwiftQueuePopUp;
@@ -223,7 +229,9 @@
 			files = (
 				ED9465C223B6029700B7137B /* TestPopViewController.swift in Sources */,
 				ED9465AB23B6017C00B7137B /* ViewController.swift in Sources */,
+				ED8389672B45545000049A6E /* BottomToTopTransition.swift in Sources */,
 				ED9465A723B6017C00B7137B /* AppDelegate.swift in Sources */,
+				ED8389652B4553A300049A6E /* PopUpTransition.swift in Sources */,
 				ED9465C023B6025200B7137B /* PopUpService.swift in Sources */,
 				ED9465BF23B6025200B7137B /* PopUpUI.swift in Sources */,
 			);

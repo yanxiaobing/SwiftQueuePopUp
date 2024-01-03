@@ -30,8 +30,8 @@
             filePath = "../SwiftQueuePopUp/PopUpUI.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "dismiss(animated:completion:)"
             landmarkType = "7">
             <Locations>

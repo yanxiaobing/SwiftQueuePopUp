@@ -13,11 +13,7 @@ open class BottomToTopTransition: NSObject, UIViewControllerAnimatedTransitionin
     open var dismiss: Bool = false
     open var duration: TimeInterval = 0.25
     
-    convenience init(dismiss:Bool = false) {
-        self.init(duration:0.25, dismiss:dismiss)
-    }
-    
-    public init(duration:TimeInterval,dismiss:Bool) {
+    public init(duration: TimeInterval = 0.25, dismiss: Bool = false) {
         super.init()
         self.duration = duration
         self.dismiss = dismiss
@@ -44,7 +40,8 @@ open class BottomToTopTransition: NSObject, UIViewControllerAnimatedTransitionin
                            options: UIView.AnimationOptions.curveEaseInOut,
                            animations: {
                 targetVc.view.alpha = 0
-                targetVc.popUpView.transform = CGAffineTransform.init(scaleX: 0, y: targetVc.popUpView.bounds.height)
+                let frame = targetVc.popUpView.frame
+                targetVc.popUpView.frame = .init(origin: .init(x: frame.origin.x, y: frame.origin.y + frame.size.height), size: frame.size)
                 
             }) { (finished) in
                 targetVc.view.removeFromSuperview()
@@ -60,16 +57,13 @@ open class BottomToTopTransition: NSObject, UIViewControllerAnimatedTransitionin
             }
             
             transitionContext.containerView.addSubview(navVC.view)
-            
-            targetVc.view.alpha = 0.25
-            
+                        
             targetVc.popUpView.transform = CGAffineTransform.init(translationX: 0, y: targetVc.popUpView.bounds.height)
             
             UIView.animate(withDuration: duration,
                            delay: 0,
                            options:UIView.AnimationOptions.curveEaseInOut,
                            animations: {
-                targetVc.view.alpha = 1
                 targetVc.popUpView.transform = CGAffineTransform.identity
             }) { finished in
                 transitionContext.completeTransition(true)
@@ -77,4 +71,3 @@ open class BottomToTopTransition: NSObject, UIViewControllerAnimatedTransitionin
         }
     }
 }
-

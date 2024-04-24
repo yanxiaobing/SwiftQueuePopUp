@@ -40,8 +40,7 @@ open class BottomToTopTransition: NSObject, UIViewControllerAnimatedTransitionin
                            options: UIView.AnimationOptions.curveEaseInOut,
                            animations: {
                 targetVc.view.alpha = 0
-                let frame = targetVc.popUpView.frame
-                targetVc.popUpView.frame = .init(origin: .init(x: frame.origin.x, y: frame.origin.y + frame.size.height), size: frame.size)
+                targetVc.popUpView.transform = CGAffineTransform.init(translationX: 0, y: targetVc.popUpView.bounds.height)
                 
             }) { (finished) in
                 targetVc.view.removeFromSuperview()

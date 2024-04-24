@@ -1,6 +1,6 @@
 Pod::Spec.new do |popup|
     popup.name         = 'SwiftQueuePopUp'
-    popup.version      = '1.5.2'
+    popup.version      = '1.5.3'
     popup.summary      = '1：修复导航栈丢失问题  2：新增BottomToTopTransition'
     popup.homepage     = 'https://github.com/yanxiaobing/SwiftQueuePopUp'
     popup.license      = 'MIT'

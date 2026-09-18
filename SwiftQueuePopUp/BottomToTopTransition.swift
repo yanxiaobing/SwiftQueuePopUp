@@ -31,7 +31,7 @@ open class BottomToTopTransition: NSObject, UIViewControllerAnimatedTransitionin
             
             guard let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
                   let targetVc = navVC.children.first as? PopUpViewController else {
-                transitionContext.completeTransition(true)
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                 return
             }
             
@@ -43,19 +43,25 @@ open class BottomToTopTransition: NSObject, UIViewControllerAnimatedTransitionin
                 targetVc.popUpView.transform = CGAffineTransform.init(translationX: 0, y: targetVc.popUpView.bounds.height)
                 
             }) { (finished) in
-                targetVc.view.removeFromSuperview()
-                transitionContext.completeTransition(true)
+                if transitionContext.transitionWasCancelled {
+                    targetVc.view.alpha = 1
+                    targetVc.popUpView.transform = .identity
+                }
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
             
         } else {
             
             guard let navVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
                   let targetVc = navVC.children.first as? PopUpViewController else {
-                transitionContext.completeTransition(true)
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                 return
             }
             
+            navVC.view.frame = transitionContext.finalFrame(for: navVC)
             transitionContext.containerView.addSubview(navVC.view)
+            navVC.view.setNeedsLayout()
+            navVC.view.layoutIfNeeded()
                         
             targetVc.popUpView.transform = CGAffineTransform.init(translationX: 0, y: targetVc.popUpView.bounds.height)
             
@@ -65,7 +71,7 @@ open class BottomToTopTransition: NSObject, UIViewControllerAnimatedTransitionin
                            animations: {
                 targetVc.popUpView.transform = CGAffineTransform.identity
             }) { finished in
-                transitionContext.completeTransition(true)
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         }
     }

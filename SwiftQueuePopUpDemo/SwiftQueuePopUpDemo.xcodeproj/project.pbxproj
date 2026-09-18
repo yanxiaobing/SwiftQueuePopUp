@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0CAB029E9B46A3DB8BEC46E9 /* Pods_SwiftQueuePopUpDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F2526038B96F6B7C2AF114 /* Pods_SwiftQueuePopUpDemo.framework */; };
+		30F38E42E72139C24C9A7883 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F7CB52E0A09EB07F7E5913 /* Foundation.framework */; };
+		3B8BCD37AA28A5CB35F27F3C /* PopUpSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3A221A6DD211C237BAE38 /* PopUpSceneTests.swift */; };
 		ED8389652B4553A300049A6E /* PopUpTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8389642B4553A300049A6E /* PopUpTransition.swift */; };
 		ED8389672B45545000049A6E /* BottomToTopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8389662B45545000049A6E /* BottomToTopTransition.swift */; };
 		ED9465A723B6017C00B7137B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9465A623B6017C00B7137B /* AppDelegate.swift */; };
@@ -20,10 +22,23 @@
 		ED9C387423BAE3C60020155A /* SwiftQueuePopUp.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ED9C387323BAE3C60020155A /* SwiftQueuePopUp.podspec */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A627471A20A55B05118DA32B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED94659B23B6017C00B7137B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED9465A223B6017C00B7137B;
+			remoteInfo = SwiftQueuePopUpDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		35B29B385AF6BEF556625C3D /* SwiftQueuePopUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftQueuePopUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50391090D679B2C00501C7E3 /* Pods-SwiftQueuePopUpDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftQueuePopUpDemo.release.xcconfig"; path = "Target Support Files/Pods-SwiftQueuePopUpDemo/Pods-SwiftQueuePopUpDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C1F2526038B96F6B7C2AF114 /* Pods_SwiftQueuePopUpDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftQueuePopUpDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F7CB52E0A09EB07F7E5913 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E37C08DEA5DF890D550D8325 /* Pods-SwiftQueuePopUpDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftQueuePopUpDemo.debug.xcconfig"; path = "Target Support Files/Pods-SwiftQueuePopUpDemo/Pods-SwiftQueuePopUpDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E9E3A221A6DD211C237BAE38 /* PopUpSceneTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopUpSceneTests.swift; sourceTree = "<group>"; };
 		ED8389642B4553A300049A6E /* PopUpTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTransition.swift; sourceTree = "<group>"; };
 		ED8389662B45545000049A6E /* BottomToTopTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomToTopTransition.swift; sourceTree = "<group>"; };
 		ED9465A323B6017C00B7137B /* SwiftQueuePopUpDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftQueuePopUpDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +54,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8B59B5133305E55986F97E60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F38E42E72139C24C9A7883 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED9465A023B6017C00B7137B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,12 +82,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		092792CA528A61CC6AA53682 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D2F7CB52E0A09EB07F7E5913 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		1A0DF17A2FDF851168F34E6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				C1F2526038B96F6B7C2AF114 /* Pods_SwiftQueuePopUpDemo.framework */,
+				092792CA528A61CC6AA53682 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D95B441A38CA095D09DD207 /* SwiftQueuePopUpTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9E3A221A6DD211C237BAE38 /* PopUpSceneTests.swift */,
+			);
+			name = SwiftQueuePopUpTests;
+			path = SwiftQueuePopUpTests;
 			sourceTree = "<group>";
 		};
 		ED94659A23B6017C00B7137B = {
@@ -76,6 +117,7 @@
 				ED9465A423B6017C00B7137B /* Products */,
 				04AA7E3DEC89CB530362A131 /* Pods */,
 				1A0DF17A2FDF851168F34E6E /* Frameworks */,
+				1D95B441A38CA095D09DD207 /* SwiftQueuePopUpTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				ED9465A323B6017C00B7137B /* SwiftQueuePopUpDemo.app */,
+				35B29B385AF6BEF556625C3D /* SwiftQueuePopUpTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +158,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		145338F824A4FDBC4D0F8644 /* SwiftQueuePopUpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 167B96ED2D2F4DA3E0FE4092 /* Build configuration list for PBXNativeTarget "SwiftQueuePopUpTests" */;
+			buildPhases = (
+				E94E4A2BB9D815241A4F0025 /* Sources */,
+				8B59B5133305E55986F97E60 /* Frameworks */,
+				3F9976F480879A39BCAA4B8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF6B97E59FBB8043F7CB4E3B /* PBXTargetDependency */,
+			);
+			name = SwiftQueuePopUpTests;
+			productName = SwiftQueuePopUpTests;
+			productReference = 35B29B385AF6BEF556625C3D /* SwiftQueuePopUpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ED9465A223B6017C00B7137B /* SwiftQueuePopUpDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED9465B723B6018300B7137B /* Build configuration list for PBXNativeTarget "SwiftQueuePopUpDemo" */;
@@ -163,11 +224,19 @@
 			projectRoot = "";
 			targets = (
 				ED9465A223B6017C00B7137B /* SwiftQueuePopUpDemo */,
+				145338F824A4FDBC4D0F8644 /* SwiftQueuePopUpTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3F9976F480879A39BCAA4B8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED9465A123B6017C00B7137B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,6 +292,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E94E4A2BB9D815241A4F0025 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8BCD37AA28A5CB35F27F3C /* PopUpSceneTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED94659F23B6017C00B7137B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,6 +316,15 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DF6B97E59FBB8043F7CB4E3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftQueuePopUpDemo;
+			target = ED9465A223B6017C00B7137B /* SwiftQueuePopUpDemo */;
+			targetProxy = A627471A20A55B05118DA32B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		ED9465B123B6018300B7137B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -251,6 +337,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		94B8660836729496976B3821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(BUILT_PRODUCTS_DIR)/SnapKit",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xbingo.SwiftQueuePopUpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftQueuePopUpDemo.app/SwiftQueuePopUpDemo";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5A785779E29F9AD697C5C5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(BUILT_PRODUCTS_DIR)/SnapKit",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xbingo.SwiftQueuePopUpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftQueuePopUpDemo.app/SwiftQueuePopUpDemo";
+			};
+			name = Debug;
+		};
 		ED9465B523B6018300B7137B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -301,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -355,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -406,6 +533,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		167B96ED2D2F4DA3E0FE4092 /* Build configuration list for PBXNativeTarget "SwiftQueuePopUpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94B8660836729496976B3821 /* Release */,
+				E5A785779E29F9AD697C5C5B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ED94659E23B6017C00B7137B /* Build configuration list for PBXProject "SwiftQueuePopUpDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

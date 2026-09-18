@@ -16,7 +16,7 @@ https://github.com/yanxiaobing/SwiftQueuePopUp.git
 import SwiftQueuePopUp
 ```
 
-当前 2.0.0 尚未发布；远程接入需要先推送这些改动。在此之前，可用 Xcode 的 **Add Local** 选择本仓库目录验证。发布 `2.0.0` 标签后，其他 Swift Package 可以这样依赖：
+选择 **Up to Next Major Version**，最低版本填写 `2.0.0`。其他 Swift Package 可以这样依赖：
 
 ```swift
 dependencies: [
